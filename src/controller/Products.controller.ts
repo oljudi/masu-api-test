@@ -22,7 +22,7 @@ const getAll = async (req: Request, res: Response, next: NextFunction) => {
       limit: +limit,
       page: +page,
     });
-    return res.status(HttpStatusCodes.OK).json({ products });
+    return res.status(HttpStatusCodes.OK).json(products);
   } catch (error) {
     next(error);
   }
@@ -42,7 +42,7 @@ const getById = async (req: Request, res: Response, next: NextFunction) => {
   const { id } = req.params;
   try {
     const product = await ProductsService.getById(+id);
-    return res.status(HttpStatusCodes.OK).json({ product });
+    return res.status(HttpStatusCodes.OK).json(product);
   } catch (error) {
     next(error);
   }
